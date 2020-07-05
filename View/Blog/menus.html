@@ -1,0 +1,14 @@
+<div id='blog-top' style='background-color: #3a3d48;overflow: hidden;position: fixed;width: 100%;top:0px;'>
+	<span style='color: #fff;cursor: pointer;line-height: 60px;margin-left: 20px;font-size: 1.5rem;'>
+		<a style="text-decoration: none;color: #fff;" href="/">{$view_config.logo}</a>
+	</span>
+	<ul class='layui-nav' style='display: inline-block;float: right;' lay-filter='top-menus' id='top-menus'>
+	    {foreach from=$menus item=item}
+			<li style='cursor: pointer;margin-left: 20px;' class='layui-nav-item'>
+				<a href="/class?menu_name={$item.menu_name}&page=1&page_size=10">
+	                {$item.menu_name}
+				</a>
+			</li>
+	    {/foreach}
+	</ul>
+</div>

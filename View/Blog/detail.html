@@ -1,0 +1,25 @@
+{include file="Blog/header.html"}
+<link rel='stylesheet' href='/Css/font-awesome/css/font-awesome.min.css'>
+<link rel='stylesheet' href='/Css/highlight.css'>
+<link rel='stylesheet' href='/Css/markdown.css'>
+<link rel='stylesheet' href='/Css/document.css'>
+{include file="Blog/menus.html"}
+<div style="overflow: hidden;">
+<div class="markdown-body" style='display:inline-block;float:left;width: 90%;margin-left:5%;padding-top: 90px;min-height: 1000px;'>
+	{$article}
+</div>
+</div>
+{include file="Blog/bottom.html"}
+<script src='/Js/highlight.min.js'></script>
+<script>
+    hljs.initHighlightingOnLoad();
+    layui.use(['element', 'form', 'laypage'], function () {
+        var element = layui.element;
+        var laypage = layui.laypage;
+        element.on('nav(demo)', function (elem) {
+            layer.msg(elem.text());
+        });
+    });
+
+
+</script>

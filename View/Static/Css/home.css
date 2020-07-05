@@ -1,0 +1,21 @@
+.article-item {
+    background: #fff;
+    padding: 15px;
+    margin-bottom: 10px;
+    border: 1px solid #e6e6e6;
+    border-radius: 4px;
+    cursor: pointer;
+    color: #979797;
+}
+
+.article-item:hover {
+    box-shadow: 3px 3px 10px #888888;
+}
+
+.article-item h3 {
+    color: #2f6ab1;
+}
+
+.article-item p {
+    color: #666666;
+}

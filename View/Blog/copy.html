@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+	<meta charset='UTF-8'>
+	<title>Huizhang</title>
+	<link rel='stylesheet' href='../Static/Third/layui/css/layui.css'>
+	<link rel='stylesheet' href='../Static/Css/markdown.css'>
+	<link rel='stylesheet' href='../Static/Css/highlight.css'>
+	<link rel='stylesheet' href='../Static/Css/document.css'>
+	<link rel='stylesheet' href='../Static/Css/font-awesome/css/font-awesome.min.css'>
+	<style>
+		.article-item {
+			background: #fff;
+			padding: 15px;
+			margin-bottom: 10px;
+			border: 1px solid #e6e6e6;
+			border-radius: 4px;
+			cursor: pointer;
+			color: #979797;
+		}
+		.article-item:hover {
+			box-shadow: 3px 3px 10px #888888;
+		}
+		.article-item h3 {
+			color: #2f6ab1;
+		}
+		.article-item p {
+			color: #666666;
+		}
+	</style>
+</head>
+
+<body style='background: #fafafa;'>
+<div id='blog-top' style='background-color: #3a3d48;overflow: hidden;position: fixed;width: 100%;top:0px;'>
+	<span style='color: #fff;cursor: pointer;line-height: 60px;margin-left: 20px;font-size: 1.5rem;'>Huizhang</span>
+	<ul class='layui-nav' style='display: inline-block;float: right;' lay-filter='top-menus' id='top-menus'>
+	</ul>
+</div>
+
+<div id='blog-body' style='margin-top:80px;overflow: hidden;'>
+	<div id='blog-body-left' style='display:inline-block;float:left;width: 20%;'>1</div>
+	<div style='display:inline-block;float:left;width: 60%;'>
+		<ul id="article-list">
+
+		</ul>
+		<div class="markdown-body"></div>
+	</div>
+	<div id='blog-body-right' style='display:inline-block;float:left;width: 20%;'>1</div>
+</div>
+
+<div id='blog-bottom'>
+
+</div>
+
+<script src='../Static/Js/jquery.min.js'></script>
+<script src='../Static/Third/layui/layui.js'></script>
+<script src='../Static/Js/highlight.min.js'></script>
+<script src='../Static/Js/jquery.mark.min.js'></script>
+<script src='../Config/Router.js'></script>
+</body>
+</html>
+<script>
+  hljs.initHighlightingOnLoad();
+  layui.use(['element', 'form'], function(){
+    var element = layui.element;
+    element.on('nav(demo)', function(elem){
+      layer.msg(elem.text());
+    });
+
+    $.ajax({
+      type : 'GET',
+      contentType: 'JSON',
+      url : Router.topMemus,
+      success : function(result) {
+        const topMenus = result.result;
+        topMenus.forEach(function (item) {
+          $('#top-menus').empty();
+	        $('#top-menus').prepend("<li style='cursor: pointer;' class='layui-nav-item'>"+item.title+"</li>");
+        });
+        element.render();
+      },
+      error : function(e){
+      }
+	  });
+
+    $.ajax({
+      type : 'GET',
+      contentType: 'JSON',
+      url : Router.defaultArticles,
+      success : function(result) {
+        const articles = result.result;
+        articles.forEach(function (item) {
+          $('#article-list').append("<li data-aid="+item.aid+" class='article-item' style='padding:20px;height:100px;'> " +
+	          "<h2>"+item.title+"</h2> " +
+	          "<p style='margin-top:10px;text-indent:2em;'>"+item.description+"</p>" +
+	          "</li>"
+          );
+        });
+      },
+      error : function(e){
+      }
+    });
+
+    $(document).on('click', '.article-item', function () {
+	    const aid =  $(this).attr('data-aid');
+      $.ajax({
+        type : 'POST',
+        data: {aid:aid},
+        url : Router.article,
+        success : function(result) {
+					$('#article-list').hide();
+					$('.markdown-body').html(result.result);
+          hljs.initHighlighting.called = false;
+          hljs.initHighlighting();
+        },
+        error : function(e){
+        }
+      });
+    });
+
+  });
+</script>

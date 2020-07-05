@@ -1,0 +1,29 @@
+{
+    "name": "huizhang001/blog",
+    "authors": [
+        {
+            "name": "huizhang001",
+            "email": "2788828128@qq.com"
+        }
+    ],
+    "require": {
+        "easyswoole/easyswoole": "3.x",
+        "erusev/parsedown": "^1.7",
+        "easyswoole/hot-reload": "^0.1.2",
+        "ext-json": "*",
+        "easyswoole/nsq": "^1.0",
+        "easyswoole/mysqli": "^2.2",
+        "easyswoole/orm": "^1.4",
+        "easyswoole/template": "^1.0",
+        "smarty/smarty": "^3.1",
+        "ext-mbstring": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "App/",
+            "Doc\\": "Doc/",
+            "Library\\": "Library/",
+            "View\\": "View/"
+        }
+    }
+}
