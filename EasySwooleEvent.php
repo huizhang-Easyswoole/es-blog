@@ -1,18 +1,11 @@
 <?php
 namespace EasySwoole\EasySwoole;
 
-use EasySwoole\EasySwoole\Crontab\Crontab;
 use EasySwoole\EasySwoole\Swoole\EventRegister;
 use EasySwoole\EasySwoole\AbstractInterface\Event;
 use EasySwoole\Http\Request;
 use EasySwoole\Http\Response;
-use EasySwoole\ORM\Db\Connection;
-use EasySwoole\ORM\DbManager;
-use EasySwoole\ORM\Db\Config;
-use EasySwoole\Template\Render;
-use Library\Comm\IniConfig;
-use Library\Comm\Smarty;
-use Library\Crontab\DetectDocChange;
+use Library\Service\MainServerRegistryService;
 
 class EasySwooleEvent implements Event
 {
@@ -26,29 +19,21 @@ class EasySwooleEvent implements Event
     public static function mainServerCreate(EventRegister $register)
     {
         // TODO: Implement mainServerCreate() method.
-        $hotReloadOptions = new \EasySwoole\HotReload\HotReloadOptions;
-        $hotReload = new \EasySwoole\HotReload\HotReload($hotReloadOptions);
-        $hotReloadOptions->setMonitorFolder([EASYSWOOLE_ROOT . '/App',EASYSWOOLE_ROOT . '/Library']);
-        $server = ServerManager::getInstance()->getSwooleServer();
-        $hotReload->attachToServer($server);
 
-        $dbConfig = IniConfig::getInstance()->getConf('blog', 'db');
-        $config = new Config();
-        $config->setDatabase($dbConfig['database']);
-        $config->setUser($dbConfig['user']);
-        $config->setPassword($dbConfig['password']);
-        $config->setHost($dbConfig['host']);
-        $config->setGetObjectTimeout(3.0); //设置获取连接池对象超时时间
-        $config->setIntervalCheckTime(30*1000); //设置检测连接存活执行回收和创建的周期
-        $config->setMaxIdleTime(15); //连接池对象最大闲置时间(秒)
-        $config->setAutoPing(5); //设置自动ping客户端链接的间隔
-        DbManager::getInstance()->addConnection(new Connection($config));
+        // 热加载
+        MainServerRegistryService::getInstance()->hotReload();
 
-        Crontab::getInstance()->addTask(DetectDocChange::class);
+        // 数据库连接池
+        MainServerRegistryService::getInstance()->dbPool();
 
-        Render::getInstance()->getConfig()->setRender(new Smarty());
-        Render::getInstance()->getConfig()->setTempDir(EASYSWOOLE_TEMP_DIR);
-        Render::getInstance()->attachServer(ServerManager::getInstance()->getSwooleServer());
+        // crontab
+        MainServerRegistryService::getInstance()->crontab();
+
+        // smarty
+        MainServerRegistryService::getInstance()->smarty();
+
+        // words-match
+        MainServerRegistryService::getInstance()->wordsMatch();
     }
 
     public static function onRequest(Request $request, Response $response): bool

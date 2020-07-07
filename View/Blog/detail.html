@@ -1,8 +1,21 @@
-{include file="Blog/header.html"}
-<link rel='stylesheet' href='/Css/font-awesome/css/font-awesome.min.css'>
-<link rel='stylesheet' href='/Css/highlight.css'>
-<link rel='stylesheet' href='/Css/markdown.css'>
-<link rel='stylesheet' href='/Css/document.css'>
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+	<meta charset='UTF-8'>
+	<meta name="referrer" content="no-referrer" />
+	<title>{$head.title}</title>
+	<link rel='stylesheet' href='/Third/layui/css/layui.css'>
+	<link rel='stylesheet' href='/Css/font-awesome/css/font-awesome.min.css'>
+	<link rel='stylesheet' href='/Css/highlight.css'>
+	<link rel='stylesheet' href='/Css/markdown.css'>
+	<link rel='stylesheet' href='/Css/document.css'>
+	<script src='/Js/jquery.min.js'></script>
+	<script src='/Third/layui/layui.js'></script>
+    {foreach from=$head.meta item=item key=key}
+		<meta name="{$item.name}" content="{$item.content}">
+    {/foreach}
+</head>
+<body>
 {include file="Blog/menus.html"}
 <div style="overflow: hidden;">
 <div class="markdown-body" style='display:inline-block;float:left;width: 90%;margin-left:5%;padding-top: 90px;min-height: 1000px;'>

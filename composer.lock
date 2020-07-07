@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "87fbfe7f1bfbd95dd73843ba150ea7bf",
+    "content-hash": "775a74d1c5cbf911fd03216a5c87d9fc",
     "packages": [
         {
             "name": "dragonmantank/cron-expression",
@@ -343,16 +343,16 @@
         },
         {
             "name": "easyswoole/http",
-            "version": "1.7.11",
+            "version": "1.7.12",
             "source": {
                 "type": "git",
                 "url": "https://github.com/easy-swoole/http.git",
-                "reference": "79c056b933d3454841bd179582a27158e72e2dc5"
+                "reference": "5b91469c20a16dc0ec53e9c2641e739f11da97d4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/easy-swoole/http/zipball/79c056b933d3454841bd179582a27158e72e2dc5",
-                "reference": "79c056b933d3454841bd179582a27158e72e2dc5",
+                "url": "https://api.github.com/repos/easy-swoole/http/zipball/5b91469c20a16dc0ec53e9c2641e739f11da97d4",
+                "reference": "5b91469c20a16dc0ec53e9c2641e739f11da97d4",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -400,7 +400,7 @@
                 "framework",
                 "swoole"
             ],
-            "time": "2020-06-30T06:06:06+00:00"
+            "time": "2020-07-01T03:27:05+00:00"
         },
         {
             "name": "easyswoole/http-client",
@@ -621,16 +621,16 @@
         },
         {
             "name": "easyswoole/orm",
-            "version": "1.4.12",
+            "version": "1.4.13",
             "source": {
                 "type": "git",
                 "url": "https://github.com/easy-swoole/orm.git",
-                "reference": "42a48275ae370e53d880d29918640e3e3a831335"
+                "reference": "673ccea73483b8ca753f812c5a668dcc1064777f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/easy-swoole/orm/zipball/42a48275ae370e53d880d29918640e3e3a831335",
-                "reference": "42a48275ae370e53d880d29918640e3e3a831335",
+                "url": "https://api.github.com/repos/easy-swoole/orm/zipball/673ccea73483b8ca753f812c5a668dcc1064777f",
+                "reference": "673ccea73483b8ca753f812c5a668dcc1064777f",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -676,7 +676,7 @@
                 "framework",
                 "swoole"
             ],
-            "time": "2020-06-17T04:21:20+00:00"
+            "time": "2020-07-06T06:23:53+00:00"
         },
         {
             "name": "easyswoole/pool",
@@ -1040,6 +1040,55 @@
             ],
             "description": "easyswoole extension tool library",
             "time": "2020-05-19T03:06:24+00:00"
+        },
+        {
+            "name": "easyswoole/words-match",
+            "version": "1.1.x-dev",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/easy-swoole/words-match.git",
+                "reference": "cffa1282cd525abac302130504ae98097c9730dd"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/easy-swoole/words-match/zipball/cffa1282cd525abac302130504ae98097c9730dd",
+                "reference": "cffa1282cd525abac302130504ae98097c9730dd",
+                "shasum": "",
+                "mirrors": [
+                    {
+                        "url": "https://mirrors.aliyun.com/composer/dists/%package%/%reference%.%type%",
+                        "preferred": true
+                    }
+                ]
+            },
+            "require-dev": {
+                "easyswoole/swoole-ide-helper": "^1.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "EasySwoole\\WordsMatch\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Apache-2.0"
+            ],
+            "authors": [
+                {
+                    "name": "huizhang",
+                    "email": "2788828128@qq.com"
+                }
+            ],
+            "description": "An efficient swoole framework",
+            "homepage": "https://www.easyswoole.com/",
+            "keywords": [
+                "async",
+                "easyswoole",
+                "framework",
+                "swoole"
+            ],
+            "time": "2020-05-13T15:45:48+00:00"
         },
         {
             "name": "erusev/parsedown",
@@ -1820,16 +1869,16 @@
         },
         {
             "name": "react/socket",
-            "version": "v1.4.0",
+            "version": "v1.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/reactphp/socket.git",
-                "reference": "97522e24987365e1ed873f0f4884900747a668e0"
+                "reference": "842dcd71df86671ee9491734035b3d2cf4a80ece"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/reactphp/socket/zipball/97522e24987365e1ed873f0f4884900747a668e0",
-                "reference": "97522e24987365e1ed873f0f4884900747a668e0",
+                "url": "https://api.github.com/repos/reactphp/socket/zipball/842dcd71df86671ee9491734035b3d2cf4a80ece",
+                "reference": "842dcd71df86671ee9491734035b3d2cf4a80ece",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -1849,7 +1898,7 @@
             },
             "require-dev": {
                 "clue/block-react": "^1.2",
-                "phpunit/phpunit": "^7.5 || ^6.4 || ^5.7 || ^4.8.35",
+                "phpunit/phpunit": "^9.0 || ^5.7 || ^4.8.35",
                 "react/promise-stream": "^1.2"
             },
             "type": "library",
@@ -1870,7 +1919,7 @@
                 "reactphp",
                 "stream"
             ],
-            "time": "2020-03-12T12:15:14+00:00"
+            "time": "2020-07-01T12:50:00+00:00"
         },
         {
             "name": "react/stream",
@@ -1991,11 +2040,14 @@
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "easyswoole/words-match": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
-        "ext-json": "*"
+        "ext-json": "*",
+        "ext-mbstring": "*"
     },
     "platform-dev": []
 }

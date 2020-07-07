@@ -16,7 +16,9 @@
         "easyswoole/orm": "^1.4",
         "easyswoole/template": "^1.0",
         "smarty/smarty": "^3.1",
-        "ext-mbstring": "*"
+        "ext-mbstring": "*",
+        "easyswoole/words-match": "1.1.x-dev",
+        "ext-yaml": "*"
     },
     "autoload": {
         "psr-4": {

@@ -49,13 +49,12 @@ class Article extends Controller
     public function articleDetail()
     {
         $uuid = $this->request()->getRequestParam('uuid');
-        $article = ArticleService::getInstance()->articleDetail($uuid);
+        $articleDetail = ArticleService::getInstance()->articleDetail($uuid);
         $menus = ArticleService::getInstance()->menes();
-        $this->response()->write(Render::getInstance()->render('Blog/detail.html', [
+        $this->response()->write(Render::getInstance()->render('Blog/detail.html', array_merge([
             'menus' => $menus,
-            'article' => $article,
             'view_config' => IniConfig::getInstance()->getConf('blog', 'view')
-        ]));
+        ], $articleDetail)));
     }
 
 }
