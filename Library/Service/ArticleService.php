@@ -11,8 +11,9 @@ class ArticleService
 {
     use Singleton;
 
-    public function defaultArticle()
+    public function hotArticle()
     {
+        // TODO: 可根据访问量拿前10条
         $res = ArticleInfoModel::create()->order('id', 'desc')->limit(10)->all();
         $articleList = [];
         foreach ($res as $item)

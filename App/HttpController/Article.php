@@ -14,47 +14,61 @@ class Article extends Controller
 
     }
 
-    public function defaultArticle()
+    /**
+     * 热门文章
+     */
+    public function hotArticle()
     {
-        $menus = ArticleService::getInstance()->menes();
-        $articleList = ArticleService::getInstance()->defaultArticle();
-        $this->response()->write(Render::getInstance()->render('Blog/index.html', [
-            'menus' => $menus,
+        $articleList = ArticleService::getInstance()->hotArticle();
+        $this->formatReturn([
             'article_list' => $articleList,
-            'menu_name' => '',
-            'total' => 0,
-            'page' => 1,
-            'page_size' => 10,
-            'view_config' => IniConfig::getInstance()->getConf('blog', 'view')
-        ]));
+        ], 'index.html');
     }
 
+    /**
+     * 分类下的文章
+     */
     public function articleClass()
     {
         $params = $this->request()->getQueryParams();
-        $menus = ArticleService::getInstance()->menes();
         [$total, $articleList] = ArticleService::getInstance()
             ->articleClass($params['page'], $params['page_size'], $params['menu_name']);
-        $this->response()->write(Render::getInstance()->render('Blog/index.html', [
-            'menus' => $menus,
+        $this->formatReturn([
             'article_list' => $articleList,
             'total' => $total,
             'menu_name' => $params['menu_name'],
             'page' => $params['page'],
             'page_size' => $params['page_size'],
-            'view_config' => IniConfig::getInstance()->getConf('blog', 'view')
-        ]));
+        ], 'index.html');
     }
 
+    /**
+     * 文章详情
+     */
     public function articleDetail()
     {
         $uuid = $this->request()->getRequestParam('uuid');
         $articleDetail = ArticleService::getInstance()->articleDetail($uuid);
+        $this->formatReturn($articleDetail, 'detail.html');
+    }
+
+    /**
+     * 返回给view层的数据
+     *
+     * @param array $data
+     * @param string $page
+     */
+    private function formatReturn(array $data, string $page) : void
+    {
         $menus = ArticleService::getInstance()->menes();
-        $this->response()->write(Render::getInstance()->render('Blog/detail.html', array_merge([
+
+        $base = [
             'menus' => $menus,
             'view_config' => IniConfig::getInstance()->getConf('blog', 'view')
-        ], $articleDetail)));
+        ];
+
+        $pageData = array_merge($base, $data);
+        $this->response()->write(Render::getInstance()->render('Blog/'.$page, $pageData));
     }
 
 }

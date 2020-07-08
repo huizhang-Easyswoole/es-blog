@@ -1,11 +1,4 @@
----
-title: easyswoole框架,一款基于swoole实现的高性能协程框架
-meta:
-  - name: description
-    content: easyswoole是一款基于swoole的一个高性能分布式微服务框架，旨在提供一个高效、快速、优雅的框架给php开发者
-  - name: keywords
-    content: swoole|swoole拓展|easyswoole|swoole框架
----
+
 #Docker+TP5+RabbitMQ+入消息队列+自动消费队列
 
 > 注意：仅仅记录学习，不能直接运行，有任何问题请留言。

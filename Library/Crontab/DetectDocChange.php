@@ -21,12 +21,6 @@ class DetectDocChange extends AbstractCronTask
         return  'DetectDocChange';
     }
 
-    private $specialChars = [
-        '>' => '',
-        '#' => '',
-        '`' => ''
-    ];
-
     function run(int $taskId, int $workerIndex)
     {
 
@@ -60,7 +54,7 @@ class DetectDocChange extends AbstractCronTask
                 $articleInfo = ArticleInfoModel::create()->get(['uuid' => $item['uuid']]);
                 $articleInfo->update([
                     'title' => $item['title']??'',
-                    'introduction' => $item['introduction']??'',
+                    'description' => $item['description']??'',
                     'cover' => $item['cover']??'/Images/cover.png',
                     'utime' => date('Y-m-d H:i:s'),
                     'uuid' => $item['uuid'],
@@ -71,7 +65,7 @@ class DetectDocChange extends AbstractCronTask
             } else {
                 ArticleInfoModel::create()->data([
                     'title' => $item['title']??'',
-                    'introduction' => $item['introduction']??'',
+                    'description' => $item['description']??'',
                     'cover' => $item['cover']??'/Images/cover.png',
                     'utime' => date('Y-m-d H:i:s'),
                     'uuid' => $item['uuid'],
@@ -82,17 +76,16 @@ class DetectDocChange extends AbstractCronTask
         }
 
 
-//        foreach ($articleInfoDbUuid as $uuid)
-//        {
-//            if (
-//                !empty($articlesInfoDb) &&
-//                !in_array($uuid, $intersect, false)
-//            ) {
-//                ArticleInfoModel::create()->destroy([
-//                    'uuid' => $uuid
-//                ]);
-//            }
-//        }
+        foreach ($articleInfoDbUuid as $uuid)
+        {
+            if (
+                !in_array($uuid, $intersect, false)
+            ) {
+                ArticleInfoModel::create()->destroy([
+                    'uuid' => $uuid
+                ]);
+            }
+        }
 
         return true;
     }
@@ -124,17 +117,16 @@ class DetectDocChange extends AbstractCronTask
             }
         }
 
-//        foreach ($menuDbArr as $menuDb)
-//        {
-//            if (
-//                !empty($menusDb) &&
-//                !in_array($menuDb, $intersect, false)
-//            ) {
-//                $menusModel->destroy([
-//                    'menu_name' => $menuDb
-//                ]);
-//            }
-//        }
+        foreach ($menuDbArr as $menuDb)
+        {
+            if (
+                !in_array($menuDb, $intersect, false)
+            ) {
+                $menusModel->destroy([
+                    'menu_name' => $menuDb
+                ]);
+            }
+        }
 
         return true;
     }
@@ -150,13 +142,13 @@ class DetectDocChange extends AbstractCronTask
             $fileResource = fopen($file, 'a+');
             $waitUpArticleInfo = [
                 'title' => false,
-                'introduction' => false,
+                'description' => false,
                 'cover' => false
             ];
             $description = '';
             while (!feof($fileResource))
             {
-                if ($waitUpArticleInfo['title'] && $waitUpArticleInfo['introduction'] && $waitUpArticleInfo['cover'])
+                if ($waitUpArticleInfo['title'] && $waitUpArticleInfo['description'] && $waitUpArticleInfo['cover'])
                 {
                     break;
                 }
@@ -176,9 +168,7 @@ class DetectDocChange extends AbstractCronTask
                     $waitUpArticleInfo['cover'] = true;
                 }
 
-                $line = strtr($line, $this->specialChars);
-
-                if (strlen($description) <= 300 && !$waitUpArticleInfo['introduction'])
+                if (strlen($description) <= 300 && !$waitUpArticleInfo['description'])
                 {
                     preg_match_all('/[\x{4e00}-\x{9fff}]+/u', $line, $chinese);
                     $chinese = $chinese[0];
@@ -190,8 +180,8 @@ class DetectDocChange extends AbstractCronTask
                     }
                     if (strlen($description) >= 300)
                     {
-                        $waitUpArticleInfo['introduction'] = true;
-                        $articleInfo['introduction'] = $description;
+                        $waitUpArticleInfo['description'] = true;
+                        $articleInfo['description'] = $description;
                     }
                 }
             }

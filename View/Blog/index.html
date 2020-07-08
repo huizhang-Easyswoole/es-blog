@@ -1,9 +1,19 @@
-{include file="Blog/header.html"}
-<link rel='stylesheet' href='/Css/home.css'>
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+	<meta charset='UTF-8'>
+	<meta name="referrer" content="no-referrer" />
+	<title>{$view_config.title}</title>
+	<link rel='stylesheet' href='/Third/layui/css/layui.css'>
+	<link rel='stylesheet' href='/Css/home.css'>
+	<script src='/Js/jquery.min.js'></script>
+	<script src='/Third/layui/layui.js'></script>
+</head>
+<body>
 {include file="Blog/menus.html"}
 
 <div style="overflow: hidden;">
-<div style='display:inline-block;float:left;width: 90%;margin-left:5%;padding-top: 90px;min-height: 1000px;'>
+<div style='display:inline-block;float:left;width: 70%;margin-left:15%;padding-top: 90px;min-height: 1000px;'>
 	<ul id="article-list">
         {foreach from=$article_list item=item}
             <a href="/details?uuid={$item.uuid}">
@@ -14,7 +24,7 @@
 		            <div style="margin-left: 20px;display: inline-block;width:85%;float:right;height: 90px;">
 			            <div style="height: 95px;">
 				            <h2>{$item.title}</h2>
-				            <p style='margin-top:5px;text-indent:2em;font-size: 0.85rem;'>{$item.introduction}</p>
+				            <p style='margin-top:5px;text-indent:2em;font-size: 0.85rem;'>{$item.description}</p>
 			            </div>
 			            <div style="float:right;">
 				            <span>发布时间:{$item.ctime}</span>
