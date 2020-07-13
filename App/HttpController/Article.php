@@ -22,6 +22,7 @@ class Article extends Controller
         $articleList = ArticleService::getInstance()->hotArticle();
         $this->formatReturn([
             'article_list' => $articleList,
+            'menu_name' => ''
         ], 'index.html');
     }
 
