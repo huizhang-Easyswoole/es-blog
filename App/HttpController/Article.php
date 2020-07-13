@@ -48,6 +48,7 @@ class Article extends Controller
     public function articleDetail()
     {
         $uuid = $this->request()->getRequestParam('uuid');
+        ArticleService::getInstance()->articlePV($this->request()->getHeader('x-real-ip')[0]??'', $uuid);
         $articleDetail = ArticleService::getInstance()->articleDetail($uuid);
         $this->formatReturn($articleDetail, 'detail.html');
     }

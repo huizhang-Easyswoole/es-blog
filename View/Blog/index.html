@@ -5,7 +5,7 @@
 	<meta name="referrer" content="no-referrer" />
 	<title>{$view_config.title}</title>
 	<link rel='stylesheet' href='/Third/layui/css/layui.css'>
-	<link rel='stylesheet' href='/Css/home.css'>
+	<link rel='stylesheet' href='/Css/article.css'>
 	<script src='/Js/jquery.min.js'></script>
 	<script src='/Third/layui/layui.js'></script>
 </head>
@@ -18,16 +18,17 @@
         {foreach from=$article_list item=item}
             <a href="/details?uuid={$item.uuid}">
 	            <li class='article-item' style='padding:20px;min-height:100px;overflow: hidden;'>
-		            <div style="display: inline-block;float: left; width: 10%;">
+		            <div class="left" style="display: inline-block;float: left; width: 10%;">
 			            <img style="width: 100px;height:100px;" src="{$item.cover}">
 		            </div>
-		            <div style="margin-left: 20px;display: inline-block;width:85%;float:right;height: 90px;">
+		            <div class="right" style="margin-left: 20px;display: inline-block;width:85%;float:right;height: 90px;">
 			            <div style="height: 95px;">
 				            <h2>{$item.title}</h2>
 				            <p style='margin-top:5px;text-indent:2em;font-size: 0.85rem;'>{$item.description}</p>
 			            </div>
-			            <div style="float:right;">
+			            <div class="right-bottom">
 				            <span>发布时间:{$item.ctime}</span>
+				            <span>访问量:{$item.pv}</span>
 			            </div>
 		            </div>
 				</li>

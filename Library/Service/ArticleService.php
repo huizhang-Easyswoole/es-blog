@@ -2,6 +2,8 @@
 namespace Library\Service;
 
 use EasySwoole\Component\Singleton;
+use EasySwoole\FastCache\Cache;
+use EasySwoole\Mysqli\QueryBuilder;
 use EasySwoole\WordsMatch\WordsMatchClient;
 use Parsedown;
 use Library\Model\ArticleInfoModel;
@@ -13,11 +15,10 @@ class ArticleService
 
     public function hotArticle()
     {
-        // TODO: 可根据访问量拿前10条
-        $res = ArticleInfoModel::create()->order('id', 'desc')->limit(10)->all();
+        $res = ArticleInfoModel::create()
+            ->order('pv', 'desc')->limit(10)->all();
         $articleList = [];
-        foreach ($res as $item)
-        {
+        foreach ($res as $item) {
             $item = $item->toArray();
             $articleList[] = $item;
         }
@@ -29,14 +30,13 @@ class ArticleService
     {
         $res = MenusModel::create()->all();
         $menus = [];
-        foreach ($res as $item)
-        {
+        foreach ($res as $item) {
             $menus[] = $item->toArray();
         }
         return $menus;
     }
 
-    public function articleClass(int $page=1, int $pageSize=10, string $menuName)
+    public function articleClass(int $page = 1, int $pageSize = 10, string $menuName)
     {
 
         $articleInfoModel = ArticleInfoModel::create()
@@ -49,8 +49,7 @@ class ArticleService
         $total = $articleInfoModel->lastQueryResult()->getTotalCount();
 
         $articleList = [];
-        foreach ($res as $item)
-        {
+        foreach ($res as $item) {
             $item = $item->toArray();
             $articleList[] = $item;
         }
@@ -63,10 +62,10 @@ class ArticleService
         $articleInfo = ArticleInfoModel::create()->where('uuid', $uuid)->get();
         $articleInfo = $articleInfo->toArray();
 
-        $filePath = EASYSWOOLE_ROOT.'/Doc/' . $articleInfo['menu_name'] . '/' . $articleInfo['file_name'];
+        $filePath = EASYSWOOLE_ROOT . '/Doc/' . $articleInfo['menu_name'] . '/' . $articleInfo['file_name'];
 
         $head = '';
-        $content='';
+        $content = '';
         $file = fopen($filePath, 'rb');
         $isInHead = false;
         while (is_resource($file) && !feof($file)) {
@@ -78,7 +77,7 @@ class ArticleService
                     $head .= $line;
                 }
             } else {
-                if (strlen(trim($line))===3 && substr($line, 0, 3) === '---') {
+                if (strlen(trim($line)) === 3 && substr($line, 0, 3) === '---') {
                     $isInHead = true;
                 } else {
                     $content .= $line;
@@ -86,8 +85,7 @@ class ArticleService
             }
         }
 
-        if (empty($head))
-        {
+        if (empty($head)) {
             $headInfo = WordsMatchClient::getInstance()->detect($content);
             $keywords = array_column($headInfo, 'word');
             $headInfo['title'] = $articleInfo['title'];
@@ -107,6 +105,23 @@ class ArticleService
             'head' => $headInfo,
             'article' => Parsedown::instance()->text($content)
         ];
+    }
+
+    public function articlePV($clientIp, $uuid)
+    {
+        $key = md5($clientIp.$uuid);
+        if (empty(Cache::getInstance()->get($key)))
+        {
+            Cache::getInstance()->set($key, time(), 60);
+            ArticleInfoModel::create()->update(
+                [
+                    'pv' => QueryBuilder::inc()
+                ],
+                [
+                    'uuid' => $uuid
+                ]
+            );
+        }
     }
 
 }

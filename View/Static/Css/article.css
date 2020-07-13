@@ -19,3 +19,12 @@
 .article-item p {
     color: #666666;
 }
+
+#article-list .right-bottom
+{
+    float:right;
+}
+#article-list .article-item .right-bottom span
+{
+    margin-left: 20px;
+}

@@ -18,7 +18,8 @@
         "smarty/smarty": "^3.1",
         "ext-mbstring": "*",
         "easyswoole/words-match": "1.1.x-dev",
-        "ext-yaml": "*"
+        "ext-yaml": "*",
+        "easyswoole/fast-cache": "^1.3"
     },
     "autoload": {
         "psr-4": {

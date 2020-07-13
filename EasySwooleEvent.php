@@ -34,6 +34,9 @@ class EasySwooleEvent implements Event
 
         // words-match
         MainServerRegistryService::getInstance()->wordsMatch();
+
+        // fast-cache
+        MainServerRegistryService::getInstance()->fastCache();
     }
 
     public static function onRequest(Request $request, Response $response): bool
