@@ -125,16 +125,16 @@
         },
         {
             "name": "easyswoole/config",
-            "version": "1.0.6",
+            "version": "1.0.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/easy-swoole/config.git",
-                "reference": "bdb566ea7ef165c337d7fc6d2d7cf3538233d8a6"
+                "reference": "16c60dc31da7c6558c02f394d149ace2ad47453d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/easy-swoole/config/zipball/bdb566ea7ef165c337d7fc6d2d7cf3538233d8a6",
-                "reference": "bdb566ea7ef165c337d7fc6d2d7cf3538233d8a6",
+                "url": "https://api.github.com/repos/easy-swoole/config/zipball/16c60dc31da7c6558c02f394d149ace2ad47453d",
+                "reference": "16c60dc31da7c6558c02f394d149ace2ad47453d",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -176,20 +176,20 @@
                 "framework",
                 "swoole"
             ],
-            "time": "2020-03-13T03:27:30+00:00"
+            "time": "2020-07-13T07:57:08+00:00"
         },
         {
             "name": "easyswoole/ddl",
-            "version": "1.0.5",
+            "version": "1.0.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/easy-swoole/ddl.git",
-                "reference": "14ef9dcc418a29a6a3dde53932ba66e2ab95cbe1"
+                "reference": "a885260d491908f297a2dcb8a0e9631fe9a9fa79"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/easy-swoole/ddl/zipball/14ef9dcc418a29a6a3dde53932ba66e2ab95cbe1",
-                "reference": "14ef9dcc418a29a6a3dde53932ba66e2ab95cbe1",
+                "url": "https://api.github.com/repos/easy-swoole/ddl/zipball/a885260d491908f297a2dcb8a0e9631fe9a9fa79",
+                "reference": "a885260d491908f297a2dcb8a0e9631fe9a9fa79",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -226,7 +226,7 @@
                 "framework",
                 "swoole"
             ],
-            "time": "2020-04-08T08:15:05+00:00"
+            "time": "2020-07-17T02:47:40+00:00"
         },
         {
             "name": "easyswoole/easyswoole",
@@ -459,16 +459,16 @@
         },
         {
             "name": "easyswoole/http-client",
-            "version": "1.3.11",
+            "version": "1.4.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/easy-swoole/http-client.git",
-                "reference": "2e1a16346f1a9007b389af381135d8fb2e44eddf"
+                "reference": "ddd4c476ce27871dbcfd6e6d56d337fbd8f2c1ba"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/easy-swoole/http-client/zipball/2e1a16346f1a9007b389af381135d8fb2e44eddf",
-                "reference": "2e1a16346f1a9007b389af381135d8fb2e44eddf",
+                "url": "https://api.github.com/repos/easy-swoole/http-client/zipball/ddd4c476ce27871dbcfd6e6d56d337fbd8f2c1ba",
+                "reference": "ddd4c476ce27871dbcfd6e6d56d337fbd8f2c1ba",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -510,7 +510,7 @@
                 "framework",
                 "swoole"
             ],
-            "time": "2020-01-13T01:56:10+00:00"
+            "time": "2020-07-15T02:53:22+00:00"
         },
         {
             "name": "easyswoole/log",
@@ -676,16 +676,16 @@
         },
         {
             "name": "easyswoole/orm",
-            "version": "1.4.13",
+            "version": "1.4.17",
             "source": {
                 "type": "git",
                 "url": "https://github.com/easy-swoole/orm.git",
-                "reference": "673ccea73483b8ca753f812c5a668dcc1064777f"
+                "reference": "59ae0de6ba8f0d5b1b5e89a3b260851c11440b24"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/easy-swoole/orm/zipball/673ccea73483b8ca753f812c5a668dcc1064777f",
-                "reference": "673ccea73483b8ca753f812c5a668dcc1064777f",
+                "url": "https://api.github.com/repos/easy-swoole/orm/zipball/59ae0de6ba8f0d5b1b5e89a3b260851c11440b24",
+                "reference": "59ae0de6ba8f0d5b1b5e89a3b260851c11440b24",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -731,7 +731,7 @@
                 "framework",
                 "swoole"
             ],
-            "time": "2020-07-06T06:23:53+00:00"
+            "time": "2020-07-22T14:01:34+00:00"
         },
         {
             "name": "easyswoole/pool",
@@ -1102,12 +1102,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/easy-swoole/words-match.git",
-                "reference": "cffa1282cd525abac302130504ae98097c9730dd"
+                "reference": "cd72575fb7e506245eaf95f2834642afcbf5db62"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/easy-swoole/words-match/zipball/cffa1282cd525abac302130504ae98097c9730dd",
-                "reference": "cffa1282cd525abac302130504ae98097c9730dd",
+                "url": "https://api.github.com/repos/easy-swoole/words-match/zipball/cd72575fb7e506245eaf95f2834642afcbf5db62",
+                "reference": "cd72575fb7e506245eaf95f2834642afcbf5db62",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -1143,7 +1143,7 @@
                 "framework",
                 "swoole"
             ],
-            "time": "2020-05-13T15:45:48+00:00"
+            "time": "2020-07-20T02:45:08+00:00"
         },
         {
             "name": "erusev/parsedown",
@@ -1605,16 +1605,16 @@
         },
         {
             "name": "react/dns",
-            "version": "v1.2.0",
+            "version": "v1.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/reactphp/dns.git",
-                "reference": "a214d90c2884dac18d0cac6176202f247b66d762"
+                "reference": "89d83794e959ef3e0f1ab792f070b0157de1abf2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/reactphp/dns/zipball/a214d90c2884dac18d0cac6176202f247b66d762",
-                "reference": "a214d90c2884dac18d0cac6176202f247b66d762",
+                "url": "https://api.github.com/repos/reactphp/dns/zipball/89d83794e959ef3e0f1ab792f070b0157de1abf2",
+                "reference": "89d83794e959ef3e0f1ab792f070b0157de1abf2",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -1627,12 +1627,12 @@
                 "php": ">=5.3.0",
                 "react/cache": "^1.0 || ^0.6 || ^0.5",
                 "react/event-loop": "^1.0 || ^0.5",
-                "react/promise": "^2.7 || ^1.2.1",
+                "react/promise": "^3.0 || ^2.7 || ^1.2.1",
                 "react/promise-timer": "^1.2"
             },
             "require-dev": {
                 "clue/block-react": "^1.2",
-                "phpunit/phpunit": "^7.0 || ^6.4 || ^5.7 || ^4.8.35"
+                "phpunit/phpunit": "^9.0 || ^4.8.35"
             },
             "type": "library",
             "autoload": {
@@ -1651,7 +1651,7 @@
                 "dns-resolver",
                 "reactphp"
             ],
-            "time": "2019-08-15T09:06:31+00:00"
+            "time": "2020-07-10T12:12:50+00:00"
         },
         {
             "name": "react/event-loop",
@@ -1700,6 +1700,92 @@
                 "event-loop"
             ],
             "time": "2020-01-01T18:39:52+00:00"
+        },
+        {
+            "name": "react/http",
+            "version": "v1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/reactphp/http.git",
+                "reference": "865694453c95122f8972b9ed7961efb3c517fc5e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/reactphp/http/zipball/865694453c95122f8972b9ed7961efb3c517fc5e",
+                "reference": "865694453c95122f8972b9ed7961efb3c517fc5e",
+                "shasum": "",
+                "mirrors": [
+                    {
+                        "url": "https://mirrors.aliyun.com/composer/dists/%package%/%reference%.%type%",
+                        "preferred": true
+                    }
+                ]
+            },
+            "require": {
+                "evenement/evenement": "^3.0 || ^2.0 || ^1.0",
+                "php": ">=5.3.0",
+                "psr/http-message": "^1.0",
+                "react/event-loop": "^1.0 || ^0.5",
+                "react/promise": "^2.3 || ^1.2.1",
+                "react/promise-stream": "^1.1",
+                "react/socket": "^1.1",
+                "react/stream": "^1.0 || ^0.7.5",
+                "ringcentral/psr7": "^1.2"
+            },
+            "require-dev": {
+                "clue/block-react": "^1.1",
+                "clue/http-proxy-react": "^1.3",
+                "clue/reactphp-ssh-proxy": "^1.0",
+                "clue/socks-react": "^1.0",
+                "phpunit/phpunit": "^9.0 || ^5.7 || ^4.8.35"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "React\\Http\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Christian Lück",
+                    "email": "christian@clue.engineering",
+                    "homepage": "https://clue.engineering/"
+                },
+                {
+                    "name": "Cees-Jan Kiewiet",
+                    "email": "reactphp@ceesjankiewiet.nl",
+                    "homepage": "https://wyrihaximus.net/"
+                },
+                {
+                    "name": "Jan Sorgalla",
+                    "email": "jsorgalla@gmail.com",
+                    "homepage": "https://sorgalla.com/"
+                },
+                {
+                    "name": "Chris Boden",
+                    "email": "cboden@gmail.com",
+                    "homepage": "https://cboden.dev/"
+                }
+            ],
+            "description": "Event-driven, streaming HTTP client and server implementation for ReactPHP",
+            "keywords": [
+                "async",
+                "client",
+                "event-driven",
+                "http",
+                "http client",
+                "http server",
+                "https",
+                "psr-7",
+                "reactphp",
+                "server",
+                "streaming"
+            ],
+            "time": "2020-07-11T13:29:43+00:00"
         },
         {
             "name": "react/promise",
@@ -1817,16 +1903,16 @@
         },
         {
             "name": "react/promise-timer",
-            "version": "v1.5.1",
+            "version": "v1.6.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/reactphp/promise-timer.git",
-                "reference": "35fb910604fd86b00023fc5cda477c8074ad0abc"
+                "reference": "daee9baf6ef30c43ea4c86399f828bb5f558f6e6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/reactphp/promise-timer/zipball/35fb910604fd86b00023fc5cda477c8074ad0abc",
-                "reference": "35fb910604fd86b00023fc5cda477c8074ad0abc",
+                "url": "https://api.github.com/repos/reactphp/promise-timer/zipball/daee9baf6ef30c43ea4c86399f828bb5f558f6e6",
+                "reference": "daee9baf6ef30c43ea4c86399f828bb5f558f6e6",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -1838,10 +1924,10 @@
             "require": {
                 "php": ">=5.3",
                 "react/event-loop": "^1.0 || ^0.5 || ^0.4 || ^0.3.5",
-                "react/promise": "^2.7.0 || ^1.2.1"
+                "react/promise": "^3.0 || ^2.7.0 || ^1.2.1"
             },
             "require-dev": {
-                "phpunit/phpunit": "^6.4 || ^5.7 || ^4.8.35"
+                "phpunit/phpunit": "^9.0 || ^5.7 || ^4.8.35"
             },
             "type": "library",
             "autoload": {
@@ -1872,20 +1958,20 @@
                 "timeout",
                 "timer"
             ],
-            "time": "2019-03-27T18:10:32+00:00"
+            "time": "2020-07-10T12:18:06+00:00"
         },
         {
             "name": "react/react",
-            "version": "v1.0.0",
+            "version": "v1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/reactphp/reactphp.git",
-                "reference": "f11a13b09febb6676febd1f8f70befd0593bffb7"
+                "reference": "527e5cc6c88c85858b39f1a58e32f3173f5233c0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/reactphp/reactphp/zipball/f11a13b09febb6676febd1f8f70befd0593bffb7",
-                "reference": "f11a13b09febb6676febd1f8f70befd0593bffb7",
+                "url": "https://api.github.com/repos/reactphp/reactphp/zipball/527e5cc6c88c85858b39f1a58e32f3173f5233c0",
+                "reference": "527e5cc6c88c85858b39f1a58e32f3173f5233c0",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -1897,17 +1983,19 @@
             "require": {
                 "php": ">=5.3.8",
                 "react/cache": "^1.0",
-                "react/dns": "^1.0",
+                "react/dns": "^1.3",
                 "react/event-loop": "^1.0",
+                "react/http": "^1.0",
                 "react/promise": "^2.1 || ^1.2",
                 "react/promise-stream": "^1.1.1",
-                "react/socket": "^1.0",
+                "react/promise-timer": "^1.6",
+                "react/socket": "^1.4",
                 "react/stream": "^1.0"
             },
             "require-dev": {
                 "clue/block-react": "^1.1",
                 "clue/stream-filter": "^1.3",
-                "phpunit/phpunit": "^5.7 || ^4.8.35"
+                "phpunit/phpunit": "^7.0 || ^6.0 || ^5.7 || ^4.8.35"
             },
             "type": "library",
             "notification-url": "https://packagist.org/downloads/",
@@ -1915,12 +2003,13 @@
                 "MIT"
             ],
             "description": "ReactPHP: Event-driven, non-blocking I/O with PHP.",
+            "homepage": "https://reactphp.org/",
             "keywords": [
                 "asynchronous",
                 "reactor",
                 "reactphp"
             ],
-            "time": "2019-07-11T15:59:40+00:00"
+            "time": "2020-07-11T16:33:07+00:00"
         },
         {
             "name": "react/socket",
@@ -2027,6 +2116,70 @@
                 "writable"
             ],
             "time": "2020-05-04T10:17:57+00:00"
+        },
+        {
+            "name": "ringcentral/psr7",
+            "version": "1.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ringcentral/psr7.git",
+                "reference": "360faaec4b563958b673fb52bbe94e37f14bc686"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ringcentral/psr7/zipball/360faaec4b563958b673fb52bbe94e37f14bc686",
+                "reference": "360faaec4b563958b673fb52bbe94e37f14bc686",
+                "shasum": "",
+                "mirrors": [
+                    {
+                        "url": "https://mirrors.aliyun.com/composer/dists/%package%/%reference%.%type%",
+                        "preferred": true
+                    }
+                ]
+            },
+            "require": {
+                "php": ">=5.3",
+                "psr/http-message": "~1.0"
+            },
+            "provide": {
+                "psr/http-message-implementation": "1.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "RingCentral\\Psr7\\": "src/"
+                },
+                "files": [
+                    "src/functions_include.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Michael Dowling",
+                    "email": "mtdowling@gmail.com",
+                    "homepage": "https://github.com/mtdowling"
+                }
+            ],
+            "description": "PSR-7 message implementation",
+            "keywords": [
+                "http",
+                "message",
+                "stream",
+                "uri"
+            ],
+            "time": "2018-05-29T20:21:04+00:00"
         },
         {
             "name": "smarty/smarty",

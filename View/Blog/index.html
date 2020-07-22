@@ -13,56 +13,56 @@
 {include file="Blog/menus.html"}
 
 <div style="overflow: hidden;">
-<div style='display:inline-block;float:left;width: 70%;margin-left:15%;padding-top: 90px;min-height: 1000px;'>
-	<ul id="article-list">
-        {foreach from=$article_list item=item}
-            <a href="/details?uuid={$item.uuid}">
-	            <li class='article-item' style='padding:20px;min-height:100px;overflow: hidden;'>
-		            <div class="left" style="display: inline-block;float: left; width: 10%;">
-			            <img style="width: 100px;height:100px;" src="{$item.cover}">
-		            </div>
-		            <div class="right" style="margin-left: 20px;display: inline-block;width:85%;float:right;height: 90px;">
-			            <div style="height: 95px;">
-				            <h2>{$item.title}</h2>
-				            <p style='margin-top:5px;text-indent:2em;font-size: 0.85rem;'>{$item.description}</p>
-			            </div>
-			            <div class="right-bottom">
-				            <span>发布时间:{$item.ctime}</span>
-				            <span>访问量:{$item.pv}</span>
-			            </div>
-		            </div>
-				</li>
-            </a>
-        {/foreach}
-	</ul>
-	<div id="page" style="display: inline-block;float: right;"></div>
-	<div class="markdown-body"></div>
-</div>
+	<div style='display:inline-block;float:left;width: 70%;margin-left:15%;padding-top: 90px;min-height: 1000px;'>
+		<ul id="article-list">
+            {foreach from=$article_list item=item}
+				<a href="/details?uuid={$item.uuid}">
+					<li class='article-item' style='padding:20px;min-height:120px;overflow: hidden;'>
+						<div class="left" style="display: inline-block;float: left; width: 20%;overflow: hidden;">
+							<img style="width: 110px;height:110px;" src="{$item.cover}">
+						</div>
+						<div class="right" style="margin-left: 20px;display: inline-block;width:73%;float:right;height: 90px;">
+							<div style="height: 95px;margin-bottom: 15px;">
+								<h2>{$item.title}</h2>
+								<p style='margin-top:5px;text-indent:2em;font-size: 0.85rem;'>{$item.description}</p>
+							</div>
+							<div class="right-bottom">
+								<span>发布时间:{$item.ctime}</span>
+								<span>访问量:{$item.pv}</span>
+							</div>
+						</div>
+					</li>
+				</a>
+            {/foreach}
+		</ul>
+		<div id="page" style="display: inline-block;float: right;"></div>
+		<div class="markdown-body"></div>
+	</div>
 </div>
 
 {include file="Blog/bottom.html"}
 
 <script>
-	let total = {$total};
-	let page = {$page};
-	let menuName = "{$menu_name}";
-	layui.use(['element', 'form', 'laypage'], function () {
-		var element = layui.element;
-		var laypage = layui.laypage;
-		if (menuName.length > 0) {
-            laypage.render({
-                elem: 'page'
-                ,count: total
-                ,curr: page
-                ,jump: function(obj, first){
-                    if(!first){
-                        window.location.href = '/class?menu_name='+menuName+'&page='+obj.curr+'&page_size='+obj.limit;
-                    }
-                }
-            });
+  let total = {$total};
+  let page = {$page};
+  let menuName = "{$menu_name}";
+  layui.use(['element', 'form', 'laypage'], function () {
+    var element = layui.element;
+    var laypage = layui.laypage;
+    if (menuName.length > 0) {
+      laypage.render({
+        elem: 'page'
+        ,count: total
+        ,curr: page
+        ,jump: function(obj, first){
+          if(!first){
+            window.location.href = '/class?menu_name='+menuName+'&page='+obj.curr+'&page_size='+obj.limit;
+          }
         }
-		element.on('nav(demo)', function (elem) {
-		  layer.msg(elem.text());
-		});
-	});
+      });
+    }
+    element.on('nav(demo)', function (elem) {
+      layer.msg(elem.text());
+    });
+  });
 </script>
