@@ -11,25 +11,132 @@
 	<link rel='stylesheet' href='/Css/document.css'>
 	<script src='/Js/jquery.min.js'></script>
 	<script src='/Third/layui/layui.js'></script>
-    {foreach from=$head.meta item=item key=key}
-		<meta name="{$item.name}" content="{$item.content}">
-    {/foreach}
+	{foreach from=$head.meta item=item key=key}
+	<meta name="{$item.name}" content="{$item.content}">
+	{/foreach}
+	<style>
+		.right-menu{
+			width: 230px;
+			position: fixed;
+			right: 15px;
+			top: 120px;
+			min-height: 1px;
+			z-index: 99;
+			border: 1px solid #EEEEEE;
+			border-radius: 0 3px 3px 3px;
+			background-color: #fff;
+			padding: 10px;
+			max-height: 70%;
+			overflow-y: auto;
+		}
+		.right-menu::-webkit-scrollbar{
+			display:none;
+		}
+		.right-menu > .title {
+			color: #aaaaaa;
+			background-color: #fff;
+			width: 100%;
+			right: 15px;
+			padding-left: 0.1em;
+			line-height: 200%;
+			border-bottom: 1px solid #EEEEEE;
+			cursor: pointer;
+		}
+		@media (max-width: 600px) {
+			.right-menu {
+				display:none;
+			}
+			#live2d-widget {
+				display: none;
+			}
+		}
+		.right-menu > li{
+			list-style-type: none;
+			padding-left:5px;
+			padding-top: 5px;
+		}
+		.right-menu > li > a.active{
+			color:#ff0006;
+		}
+	</style>
 </head>
 <body>
 {include file="Blog/menus.html"}
 <div style="overflow: hidden;">
-<div class="markdown-body" style='display:inline-block;float:left;width: 70%;margin-left:15%;padding-top: 90px;min-height: 1000px;'>
-	{$article}
+	<div class="markdown-body" style='display:inline-block;float:left;width: 70%;margin-left:15%;padding-top: 90px;min-height: 1000px;'>
+		{$article}
+	</div>
 </div>
-</div>
+<div class="right-menu" id="right-menu"></div>
 {include file="Blog/bottom.html"}
 <script src='/Js/highlight.min.js'></script>
 <script>
-    hljs.initHighlightingOnLoad();
-    layui.use(['element', 'form', 'laypage'], function () {
-        var element = layui.element;
-        element.on('nav(demo)', function (elem) {
-            layer.msg(elem.text());
-        });
-    });
+	hljs.initHighlightingOnLoad();
+	layui.use(['element', 'form', 'laypage'], function () {
+		var element = layui.element;
+		element.on('nav(demo)', function (elem) {
+			layer.msg(elem.text());
+		});
+
+		renderRightMenu();
+
+		function dragFunc(id) {
+			var Drag = document.getElementById(id);
+			Drag.onmousedown = function(event) {
+				var ev = event || window.event;
+				event.stopPropagation();
+				var disX = ev.clientX - Drag.offsetLeft;
+				var disY = ev.clientY - Drag.offsetTop;
+				document.onmousemove = function(event) {
+					var ev = event || window.event;
+					Drag.style.left = ev.clientX - disX + "px";
+					Drag.style.top = ev.clientY - disY + "px";
+					Drag.style.cursor = "move";
+				};
+			};
+			Drag.onmouseup = function() {
+				document.onmousemove = null;
+				this.style.cursor = "default";
+			};
+		}
+
+		function renderRightMenu()
+		{
+			var rightMenu = [];
+			$(".markdown-body").children().each(function(index, element) {
+				var tagName=$(this).get(0).tagName;
+				if(tagName.substr(1,1) != 1 && tagName.substr(0,1).toUpperCase()=="H"){
+					var contentH=$(this).text();//获取内容
+					var markid="mark-"+tagName+"-"+index.toString();
+					$(this).attr("id",contentH);//为当前h标签设置id
+					var level = tagName.substr(1,2);
+					rightMenu.push({
+						level: level,
+						content: contentH,
+						markid: markid,
+					});
+				}
+			});
+			$('.right-menu').empty();
+			$('.right-menu').append("<div class='title'><i class='fa fa-list'></i> 本章导航</div>");
+			$.each(rightMenu, function (index, item) {
+				var padding_left = (item.level - 1) * 12 +"px";
+				$('.right-menu').append("<li style='padding-left:"+padding_left+"'><a href='#"+item.content+"' class='right-menu-item'>"+item.content+"</a></li>");
+			});
+			// 防止点击的导航是最底部，拉取滑动的只会到倒数其他菜单
+			$('.right-menu').on('click','a',function(){
+				// 延迟执行 等滚动完
+				var that = $(this);
+				setTimeout(function (that) {
+					$(".right-menu-item.active").removeClass("active");
+					that.addClass("active");
+				}, 50, that);
+			});
+			// 切换导航显示
+			$('.right-menu .title').on('click', function(){
+				$(this).siblings().toggle();
+			});
+			dragFunc("right-menu");
+		}
+	});
 </script>
